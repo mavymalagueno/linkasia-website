@@ -2,6 +2,18 @@
 (function () {
   "use strict";
 
+  /* Photo URLs → absolute (fixes subpath hosting, e.g. GitHub Pages).
+     Browsers disagree on the base URL for url() inside custom properties
+     declared in inline styles; an absolute URL removes the ambiguity. */
+  document.querySelectorAll('[style*="--photo"]').forEach(function (el) {
+    var m = (el.getAttribute("style") || "").match(/--photo:\s*url\((['"]?)([^'")]+)\1\)/);
+    if (m && m[2] && m[2].indexOf("data:") !== 0) {
+      try {
+        el.style.setProperty("--photo", 'url("' + new URL(m[2], document.baseURI).href + '")');
+      } catch (err) { /* leave gradient fallback */ }
+    }
+  });
+
   /* Mobile nav ------------------------------------------------------ */
   var nav = document.querySelector(".nav");
   var toggle = document.querySelector(".nav__toggle");
