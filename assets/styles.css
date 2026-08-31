@@ -833,3 +833,51 @@ p { margin: 0 0 1.1em; }
   padding: 4px 12px;
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
 }
+
+/* Category tabs (articles page) ------------------------------------ */
+.cattabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 4px 0 34px;
+}
+.cattab {
+  appearance: none;
+  font: inherit;
+  font-size: 0.83rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(7, 11, 24, 0.14);
+  background: var(--paper-alt);
+  color: var(--ink-500);
+  cursor: pointer;
+  transition: color 0.16s var(--ease), border-color 0.16s var(--ease), background 0.16s var(--ease);
+}
+.cattab:hover { border-color: var(--gold-500); color: var(--gold-500); }
+.cattab.is-active {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--gold-400);
+}
+.post--hidden { display: none !important; }
+
+/* Card footer: category + date ------------------------------------- */
+.post__meta2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(7, 11, 24, 0.08);
+  font-size: 0.72rem;
+}
+.post__meta2 span:first-child {
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold-text);
+}
+.post__meta2 span:last-child { color: var(--ink-300); white-space: nowrap; }
+.post__meta2--feature { margin-top: 18px; }

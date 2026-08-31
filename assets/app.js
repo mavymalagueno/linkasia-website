@@ -160,3 +160,23 @@
     });
   });
 })();
+
+/* Article category tabs --------------------------------------------- */
+(function () {
+  "use strict";
+  var tabs = document.querySelectorAll(".cattab");
+  if (!tabs.length) return;
+  var posts = document.querySelectorAll(".post[data-cat]");
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      tabs.forEach(function (t) { t.classList.remove("is-active"); });
+      tab.classList.add("is-active");
+      var f = tab.getAttribute("data-filter");
+      posts.forEach(function (p) {
+        var show = f === "all" || p.getAttribute("data-cat") === f;
+        p.classList.toggle("post--hidden", !show);
+        if (show) p.classList.add("is-in");
+      });
+    });
+  });
+})();
