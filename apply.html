@@ -354,6 +354,7 @@
 const API_URL  = 'https://script.google.com/macros/s/AKfycbz5T23okIOcJ8zJq09NTzCoJmiyEKIdHzW8GDIdM7TvkZmToi7JUamXvoh8jK861JFe/exec';
 const FORM_KEY = 'lams-apply-2026';
 const MAX_FILE_MB = 4;
+const JOBS_BACKUP_URL = 'https://www.linkasiamanpower.ph/jobs.json';   // copy of the position list kept on the website
 
 const PROVINCES = ["Abra","Abroad","Agusan del Norte","Agusan del Sur","Aklan","Albay","Antique","Apayao","Aurora","Basilan","Bataan","Batanes","Batangas","Benguet","Biliran","Bohol","Bukidnon","Bulacan","Cagayan","Camarines Norte","Camarines Sur","Camiguin","Capiz","Catanduanes","Cavite","Cebu","Cotabato","Davao de Oro","Davao del Norte","Davao del Sur","Davao Occidental","Davao Oriental","Dinagat Islands","Eastern Samar","Guimaras","Ifugao","Ilocos Norte","Ilocos Sur","Iloilo","Isabela","Kalinga","La Union","Laguna","Lanao del Norte","Lanao del Sur","Leyte","Maguindanao del Norte","Maguindanao del Sur","Marinduque","Masbate","Metropolitan Manila","Misamis Occidental","Misamis Oriental","Mountain Province","Negros Occidental","Negros Oriental","Northern Samar","Nueva Ecija","Nueva Vizcaya","Occidental Mindoro","Oriental Mindoro","Palawan","Pampanga","Pangasinan","Quezon","Quirino","Rizal","Romblon","Samar","Sarangani","Siquijor","Sorsogon","South Cotabato","Southern Leyte","Sultan Kudarat","Sulu","Surigao del Norte","Surigao del Sur","Tarlac","Tawi-Tawi","Zambales","Zamboanga del Norte","Zamboanga del Sur","Zamboanga Sibugay"];
 
@@ -367,6 +368,7 @@ fill(document.getElementById('country0'), COUNTRIES);
 // Positions: loaded live from Airtable through the backend (JSONP so it works from any website)
 window.__jobs = function (res) {
   const sel = document.getElementById('position');
+  const keep = sel.value;                        // keep the applicant's choice when the list refreshes
   sel.innerHTML = '<option value="">Select a position…</option>';
   if (!res || !res.ok) { sel.innerHTML = '<option value="">Could not load positions — please refresh</option>'; return; }
   window.__jobMap = {};
@@ -391,6 +393,7 @@ window.__jobs = function (res) {
     });
     sel.appendChild(g);
   });
+  if (keep && window.__jobMap[keep]) sel.value = keep;
 };
 document.getElementById('position').addEventListener('change', (e) => {
   const j = (window.__jobMap || {})[e.target.value];
@@ -430,6 +433,13 @@ async function apiCall(body, tries, timeoutMs) {
 }
 async function loadPositions() {
   const sel = document.getElementById('position');
+  // 1. Instant: the copy of the list kept on the website (refreshed whenever job orders change)
+  try {
+    const r = await fetch(JOBS_BACKUP_URL + '?_=' + Date.now());
+    const out = await r.json();
+    if (out && out.ok && out.jobs && out.jobs.length) window.__jobs(out);
+  } catch (e) {}
+  // 2. Live from the job-order database (overrides the copy above as soon as it answers)
   for (let i = 0; i < 4; i++) {
     const ctl = new AbortController();
     const timer = setTimeout(() => ctl.abort(), 60000);
@@ -441,10 +451,11 @@ async function loadPositions() {
       throw new Error(out && out.error || 'bad response');
     } catch (err) {
       clearTimeout(timer);
-      sel.innerHTML = '<option value="">Loading positions… (retrying)</option>';
+      if (!window.__jobMap) sel.innerHTML = '<option value="">Loading positions… (retrying)</option>';
       await sleep(2000 * (i + 1));
     }
   }
+  if (window.__jobMap) return;                    // the website copy is already showing
   // last resort: JSONP (works even where fetch is blocked)
   sel.innerHTML = '<option value="">Loading positions…</option>';
   const s = document.createElement('script');
