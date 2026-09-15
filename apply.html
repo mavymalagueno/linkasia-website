@@ -92,6 +92,11 @@
         </div>
       </div>
       <div class="row">
+        <div class="field"><label>Preferred country to work in <span class="req">*</span></label>
+          <select name="Preferred Country" id="prefCountry" required><option value="">Select…</option><option>Any country</option></select>
+          <div class="help">Where you would like to be deployed. Choose "Any country" if you are open.</div></div>
+      </div>
+      <div class="row">
         <div class="field">
           <label>2x2 ID Photo <span class="req">*</span></label>
           <input type="file" id="photo" accept="image/*" required>
@@ -165,6 +170,22 @@
             <option>As soon as possible</option><option>After 1 month</option><option>After 3 months</option><option>Need to confirm</option></select></div>
         <div class="field"><label>Expected Monthly Salary <span class="req">*</span></label><input type="number" name="Expected Monthly Salary" min="0" required><div class="help">In the currency of the job (e.g. USD, SAR, QAR, JPY).</div></div>
       </div>
+      <div class="row">
+        <div class="field"><label>Have you worked overseas before (ex-OFW)? <span class="req">*</span></label>
+          <select name="Ex-OFW?" id="exofw" required><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+        <div class="field" data-show="exofw=Yes"><label>Countries you worked in (last 5 years) <span class="req">*</span></label><input type="text" name="Countries Worked (last 5 years)" placeholder="e.g. Saudi Arabia, Qatar"></div>
+        <div class="field" data-show="exofw=Yes"><label>Date of last overseas work <span class="req">*</span></label><input type="date" name="Date of Last Overseas Work"><div class="help">When your last overseas contract ended.</div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Any unsettled debts overseas? <span class="req">*</span></label>
+          <select name="Unsettled Debts Overseas?" required><option value="">Select…</option><option>No</option><option>Yes</option></select></div>
+        <div class="field"><label>Any case against a former employer, DOLE or DMW (POEA)? <span class="req">*</span></label>
+          <select name="Case vs Former Employer / DOLE / DMW?" id="hascase" required><option value="">Select…</option><option>No</option><option>Yes</option></select></div>
+        <div class="field" data-show="hascase=Yes"><label>Status of the case <span class="req">*</span></label><input type="text" name="Case Status" placeholder="e.g. pending / settled / dismissed"></div>
+      </div>
+      <div class="row">
+        <div class="field full"><label>Relatives or friends abroad</label><input type="text" name="Relatives or Friends Abroad" placeholder="Who and where, e.g. sister in Dubai (leave blank if none)"></div>
+      </div>
     </fieldset>
 
     <fieldset>
@@ -230,7 +251,9 @@
           <select name="Languages you can speak or write" required><option value="">Select…</option>
             <option>English</option><option>Arabic</option><option>Nihonggo</option><option>French</option><option>German</option><option>Mandarin Chinese</option><option>Other</option></select></div>
         <div class="field"><label>Do you have a driver's license? <span class="req">*</span></label>
-          <select name="Do you have a driver's license?" required><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+          <select name="Do you have a driver's license?" id="dl" required><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+        <div class="field" data-show="dl=Yes"><label>Licence restriction code(s) <span class="req">*</span></label><input type="text" name="Driver's License Restriction Code" placeholder="e.g. 1, 2 or A, B, B1, C"></div>
+        <div class="field" data-show="dl=Yes"><label>Licence valid until <span class="req">*</span></label><input type="date" name="Driver's License Validity"></div>
       </div>
       <div class="row">
         <div class="field full"><label>Skills <span class="req">*</span> <span class="help" style="display:inline">(tick all that apply)</span></label>
@@ -333,10 +356,18 @@
     <fieldset>
       <legend>Applicant Declaration and Consent</legend>
       <div class="consent" style="border-top:0;padding-top:0">
-        <p><strong>1. Certification of Truth:</strong> I certify that the information provided in this application is true, correct, and complete to the best of my knowledge. I understand that any false statement, misrepresentation, or concealment of material facts may result in the rejection of my application, or if employed, immediate termination of my contract.</p>
+        <p><strong>1. Certification of Truth / No Falsification:</strong> I certify that the information provided in this application is true, correct, and complete to the best of my knowledge. I understand that any false statement, misrepresentation, or concealment of material facts may result in the rejection of my application, or if employed, immediate termination of my contract. I understand and agree to abide by the Department of Migrant Workers' 2023 Rules and Regulations, Section 141 (Part VI, Rule III) — submitting, furnishing or using falsified documents, or any other form of misrepresentation for the purpose of job application or employment, is a serious offense punishable by suspension of one (1) year and one (1) day to two (2) years from participation in the overseas employment program.</p>
         <p><strong>2. Data Privacy Consent:</strong> By submitting this form, I voluntarily authorize Link Asia Manpower Solutions Corp. to collect, process, and share my personal data with principals, employers, and government agencies (including DMW, POEA, BI, and TESDA) for the purpose of recruitment, documentation, and deployment, in accordance with the Data Privacy Act of 2012 (RA 10173).</p>
         <p><strong>3. Validity:</strong> I understand that my application remains valid for six (6) months. After this period, my data may be archived or disposed of securely unless I update my application.</p>
-        <label><input type="checkbox" id="declConsent" required> <span>I have read and agree to the above. <span class="req">*</span></span></label>
+        <label><input type="checkbox" id="declConsent" required> <span>I have read and agree to items 1–3 above. <span class="req">*</span></span></label>
+        <div class="consent">
+        <p><strong>4. Conflict of Interest:</strong> I undertake not to engage in any conflict of interest. Once I sign up for, or am selected by, a particular principal (employer), I waive my chance to be endorsed to other principals, unless Link Asia Manpower Solutions Corp. states otherwise.</p>
+        <label><input type="checkbox" id="coiConsent" required> <span>I agree to item 4. <span class="req">*</span></span></label>
+        </div>
+        <div class="consent">
+        <p><strong>5. Conditional Offer and Mobilization:</strong> I understand and agree that should I fail to meet the principal's required tests (trade test, interview, medical or physical tests) in the Philippines or at the job site abroad, or if for any reason it is determined that I may not be employed, the principal shall not be held liable for loss or damages. I also warrant that I have the consent of all parties involved in my application and hold Link Asia Manpower Solutions Corp. free and harmless from any complaint, suit or damages which any party may file in relation to my application.</p>
+        <label><input type="checkbox" id="offerConsent" required> <span>I agree to item 5. <span class="req">*</span></span></label>
+        </div>
       </div>
     </fieldset>
 
@@ -370,6 +401,7 @@ const COUNTRIES = ["Philippines","Saudi Arabia","Qatar","United Arab Emirates","
 function fill(sel, list) { list.forEach(v => { const o = document.createElement('option'); o.textContent = v; o.value = v; sel.appendChild(o); }); }
 fill(document.getElementById('province'), PROVINCES);
 fill(document.getElementById('country0'), COUNTRIES);
+fill(document.getElementById('prefCountry'), COUNTRIES.filter(c => c !== 'Philippines'));
 
 // Positions: loaded live from Airtable through the backend (JSONP so it works from any website)
 window.__jobs = function (res) {
@@ -720,6 +752,8 @@ form.addEventListener('submit', async (ev) => {
     if (fb && !/^https?:\/\//i.test(fb)) fb = 'https://' + (fb.includes('.') ? fb : 'facebook.com/' + fb.replace(/^@/, ''));
     fields['Facebook Messenger Account'] = fb;
     fields['Reference Check Consent'] = true;
+    fields['Conflict of Interest Undertaking'] = true;
+    fields['Conditional Offer Undertaking'] = true;
     fields['Applicant Declaration & Consent'] = true;
     fields['Pipeline Stage'] = 'New Applicant';
 
