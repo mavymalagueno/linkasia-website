@@ -44,6 +44,8 @@
   .jobinfo { display:none; margin-top:8px; border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:.86rem; background:#fafafa; }
   .jobinfo.show { display:block; }
   .jobinfo h4 { margin:0 0 6px; font-size:.86rem; }
+  .jobinfo > div + div { margin-top:10px; padding-top:8px; border-top:1px dashed var(--line); }
+  .jobinfo > div[hidden] { display:none; }
   .jobinfo pre { margin:0; white-space:pre-wrap; font:inherit; color:var(--ink); }
   .pooling { display:none; margin-top:8px; border:1px solid #f59e0b; background:#fffbeb; color:#78350f; border-radius:8px; padding:10px 12px; font-size:.86rem; }
   .pooling.show { display:block; }
@@ -82,7 +84,11 @@
           <div class="pooling" id="pooling">
             <strong>For manpower pooling only.</strong> No fees in any form and/or purpose will be collected from the applicants. Beware of illegal recruiters and human traffickers.
           </div>
-          <div class="jobinfo" id="jobinfo"><h4>Client requirements for this position</h4><pre id="jobquals"></pre></div>
+          <div class="jobinfo" id="jobinfo">
+            <div id="jobsite-box"><h4>Job site</h4><pre id="jobsite"></pre></div>
+            <div id="jobsalary-box"><h4>Salary &amp; benefits</h4><pre id="jobsalary"></pre></div>
+            <div id="jobquals-box"><h4>Requirements for this position</h4><pre id="jobquals"></pre></div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -398,9 +404,15 @@ window.__jobs = function (res) {
 document.getElementById('position').addEventListener('change', (e) => {
   const j = (window.__jobMap || {})[e.target.value];
   document.getElementById('pooling').classList.toggle('show', !!(j && j.postingType === 'Manpower Pooling'));
-  const q = j && j.qualifications ? j.qualifications : '';
-  document.getElementById('jobquals').textContent = q;
-  document.getElementById('jobinfo').classList.toggle('show', !!q);
+  const parts = [['jobsite', j && j.jobSite], ['jobsalary', j && j.salaryBenefits], ['jobquals', j && j.qualifications]];
+  let any = false;
+  parts.forEach(([id, v]) => {
+    const text = v ? String(v).trim() : '';
+    document.getElementById(id).textContent = text;
+    document.getElementById(id + '-box').hidden = !text;
+    if (text) any = true;
+  });
+  document.getElementById('jobinfo').classList.toggle('show', any);
 });
 // Google's Apps Script hosting occasionally answers a request with a transient 404 / network error.
 // apiCall() retries (with a pause) so applicants never see a stuck form.
