@@ -399,7 +399,60 @@ document.getElementById('position').addEventListener('change', (e) => {
   document.getElementById('jobquals').textContent = q;
   document.getElementById('jobinfo').classList.toggle('show', !!q);
 });
-(function () { const s = document.createElement('script'); s.src = API_URL + '?action=jobs&callback=__jobs&_=' + Date.now(); document.head.appendChild(s); })();
+// Google's Apps Script hosting occasionally answers a request with a transient 404 / network error.
+// apiCall() retries (with a pause) so applicants never see a stuck form.
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+async function apiCall(body, tries, timeoutMs) {
+  tries = tries || 4; timeoutMs = timeoutMs || 90000;
+  let lastErr = null;
+  for (let i = 0; i < tries; i++) {
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), timeoutMs);
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },   // text/plain avoids a CORS preflight
+        body: JSON.stringify(body),
+        signal: ctl.signal
+      });
+      clearTimeout(timer);
+      const text = await res.text();
+      let out;
+      try { out = JSON.parse(text); } catch (e) { throw new Error('temporary server error (' + res.status + ')'); }
+      return out;
+    } catch (err) {
+      clearTimeout(timer);
+      lastErr = err;
+      if (i < tries - 1) await sleep(2000 * (i + 1));
+    }
+  }
+  throw lastErr || new Error('could not reach the server');
+}
+async function loadPositions() {
+  const sel = document.getElementById('position');
+  for (let i = 0; i < 4; i++) {
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 60000);
+    try {
+      const res = await fetch(API_URL + '?action=jobs&_=' + Date.now(), { signal: ctl.signal });
+      clearTimeout(timer);
+      const out = JSON.parse(await res.text());
+      if (out && out.ok) { window.__jobs(out); return; }
+      throw new Error(out && out.error || 'bad response');
+    } catch (err) {
+      clearTimeout(timer);
+      sel.innerHTML = '<option value="">Loading positions… (retrying)</option>';
+      await sleep(2000 * (i + 1));
+    }
+  }
+  // last resort: JSONP (works even where fetch is blocked)
+  sel.innerHTML = '<option value="">Loading positions…</option>';
+  const s = document.createElement('script');
+  s.src = API_URL + '?action=jobs&callback=__jobs&_=' + Date.now();
+  s.onerror = () => { sel.innerHTML = '<option value="">Could not load positions — please refresh the page</option>'; };
+  document.head.appendChild(s);
+}
+loadPositions();
 
 // ================= conditional sections =================
 // data-show="id=Value|Value2"  or  data-show="id=checked"
@@ -506,12 +559,7 @@ async function parsePassport() {
   st.className = 'parse busy'; st.textContent = 'Reading your passport… about 10 seconds.';
   try {
     const file = await readFile(input);
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ action: 'parsePassport', key: FORM_KEY, file })
-    });
-    const out = await res.json();
+    const out = await apiCall({ action: 'parsePassport', key: FORM_KEY, file });
     if (!out.ok) throw new Error(out.error || 'could not read the passport');
     let n = 0;
     Object.keys(out.fields || {}).forEach(key => {
@@ -607,12 +655,7 @@ async function parseResume() {
   st.className = 'parse busy'; st.textContent = 'Reading your resume… this takes about 20 seconds. You can keep filling in the form.';
   try {
     const file = await readFile(input);
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ action: 'parseResume', key: FORM_KEY, file })
-    });
-    const out = await res.json();
+    const out = await apiCall({ action: 'parseResume', key: FORM_KEY, file });
     if (!out.ok) throw new Error(out.error || 'could not read the file');
     const n = fillFromResume(out.fields || {});
     st.className = 'parse ok';
@@ -664,12 +707,9 @@ form.addEventListener('submit', async (ev) => {
       passport: await readFile(document.getElementById('passport'))
     };
 
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },   // text/plain avoids a CORS preflight
-      body: JSON.stringify({ action: 'apply', key: FORM_KEY, website: form.website.value, fields, files })
-    });
-    const out = await res.json();
+    // submissionId lets the server recognise a retry of the same application, so a retry never creates a duplicate record
+    if (!window.__submissionId) window.__submissionId = 'sub-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    const out = await apiCall({ action: 'apply', key: FORM_KEY, submissionId: window.__submissionId, website: form.website.value, fields, files }, 4, 180000);
     if (!out.ok) throw new Error(out.error || 'Submission failed');
 
     form.classList.add('hidden');
