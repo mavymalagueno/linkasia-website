@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link Asia Manpower Solutions Corp. — Online Application Form</title>
+<style>
+  :root { --ink:#1f2937; --muted:#6b7280; --line:#d1d5db; --bg:#f3f4f6; --card:#fff; --accent:#b91c1c; --accent-dark:#991b1b; --ok:#166534; --err:#b91c1c; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.45; }
+  .wrap { max-width:860px; margin:0 auto; padding:24px 16px 60px; }
+  header { text-align:center; margin-bottom:20px; }
+  header h1 { margin:0 0 4px; font-size:1.5rem; letter-spacing:.02em; }
+  header p.sub { margin:0; color:var(--muted); font-size:.95rem; }
+  .intro { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; font-size:.93rem; margin-bottom:18px; }
+  fieldset { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px 6px; margin:0 0 18px; }
+  legend { font-weight:700; padding:0 6px; color:var(--accent); font-size:1rem; }
+  .row { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px 16px; margin-bottom:12px; }
+  .field { display:flex; flex-direction:column; }
+  .field.full { grid-column:1/-1; }
+  label { font-size:.86rem; font-weight:600; margin-bottom:4px; }
+  label .req { color:var(--accent); }
+  .help { font-size:.78rem; color:var(--muted); margin-top:3px; }
+  input[type=text],input[type=email],input[type=tel],input[type=number],input[type=date],input[type=url],select,textarea {
+    font:inherit; padding:9px 10px; border:1px solid var(--line); border-radius:7px; background:#fff; width:100%; }
+  textarea { min-height:90px; resize:vertical; }
+  input:focus,select:focus,textarea:focus { outline:2px solid #fecaca; border-color:var(--accent); }
+  .checks { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:6px 12px; }
+  .checks label, .consent label { font-weight:400; display:flex; gap:8px; align-items:flex-start; font-size:.9rem; }
+  .consent { border-top:1px dashed var(--line); padding-top:12px; margin-top:6px; }
+  .consent p { font-size:.86rem; margin:0 0 8px; }
+  .hidden { display:none !important; }
+  .invalid { border-color:var(--err) !important; }
+  .actions { text-align:center; margin-top:8px; }
+  button { font:inherit; font-weight:700; background:var(--accent); color:#fff; border:0; border-radius:8px; padding:13px 34px; cursor:pointer; font-size:1rem; }
+  button:hover { background:var(--accent-dark); }
+  button:disabled { opacity:.6; cursor:wait; }
+  #msg { margin-top:14px; padding:12px 14px; border-radius:8px; font-size:.93rem; display:none; }
+  #msg.ok { display:block; background:#dcfce7; color:var(--ok); }
+  #msg.err { display:block; background:#fee2e2; color:var(--err); }
+  .done { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:28px; text-align:center; }
+  .done h2 { color:var(--ok); margin-top:0; }
+  .hp { position:absolute; left:-9999px; }
+  .jobinfo { display:none; margin-top:8px; border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:.86rem; background:#fafafa; }
+  .jobinfo.show { display:block; }
+  .jobinfo h4 { margin:0 0 6px; font-size:.86rem; }
+  .jobinfo pre { margin:0; white-space:pre-wrap; font:inherit; color:var(--ink); }
+  .pooling { display:none; margin-top:8px; border:1px solid #f59e0b; background:#fffbeb; color:#78350f; border-radius:8px; padding:10px 12px; font-size:.86rem; }
+  .pooling.show { display:block; }
+  footer { text-align:center; color:var(--muted); font-size:.8rem; margin-top:24px; }
+  .parse { display:none; margin-top:6px; border-radius:8px; padding:8px 10px; font-size:.84rem; }
+  .parse.busy { display:block; background:#eff6ff; color:#1e3a8a; }
+  .parse.ok { display:block; background:#dcfce7; color:var(--ok); }
+  .parse.err { display:block; background:#fef3c7; color:#78350f; }
+  .filled { background:#fefce8 !important; }
+  .conv { font-size:.8rem; color:var(--muted); margin-top:5px; display:flex; align-items:center; gap:5px; flex-wrap:wrap; }
+  .conv input { width:64px; padding:5px 6px; font-size:.85rem; }
+  .conv span { margin-left:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>LINK ASIA MANPOWER SOLUTIONS CORP.</h1>
+    <p class="sub">Online Application Form &middot; DMW License No. DMW-067-LB-03312023-R &middot; Alabang, Muntinlupa City</p>
+  </header>
+
+  <div class="intro">
+    Please complete all sections of this form accurately and honestly. The information you provide will be used to evaluate your qualifications for employment. Make sure your contact details are current so we can reach you about your application. Fields marked <span style="color:#b91c1c">*</span> are required. This takes about 10–15 minutes. Have your <strong>2x2 photo</strong> and <strong>updated resume</strong> ready before you start.
+  </div>
+
+  <form id="appForm" novalidate>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+
+    <fieldset>
+      <legend>Application Details</legend>
+      <div class="row">
+        <div class="field full">
+          <label>Position Applied For <span class="req">*</span></label>
+          <select name="Position Applied For" id="position" required><option value="">Loading positions…</option></select>
+          <div class="help">Select the position you are applying for. Positions under <strong>Manpower Pooling</strong> are for pooling only — no approved job order yet.</div>
+          <div class="pooling" id="pooling">
+            <strong>For manpower pooling only.</strong> No fees in any form and/or purpose will be collected from the applicants. Beware of illegal recruiters and human traffickers.
+          </div>
+          <div class="jobinfo" id="jobinfo"><h4>Client requirements for this position</h4><pre id="jobquals"></pre></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>2x2 ID Photo <span class="req">*</span></label>
+          <input type="file" id="photo" accept="image/*" required>
+          <div class="help">Upload a 2x2 ID photo. No selfies. Max 4 MB.</div>
+        </div>
+        <div class="field">
+          <label>Resume / CV <span class="help" style="display:inline;font-weight:400">(strongly recommended)</span></label>
+          <input type="file" id="resume" accept=".pdf,.doc,.docx,image/*">
+          <div class="help">PDF, Word or a clear photo. Max 4 MB. Upload it first — we read it and fill in the form for you; you only check and complete what is missing.</div>
+          <div class="parse" id="parseStatus"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Where did you hear about us? <span class="req">*</span></label>
+          <select name="Where did you hear about us?" required><option value="">Select…</option>
+            <option>Facebook</option><option>TikTok</option><option>Link Asia website</option><option>Google search</option><option>JobStreet / online job board</option><option>Referred by a friend or relative</option><option>Referred by a Link Asia employee/agent</option><option>Walk-in</option><option>Job fair / PESO</option><option>Other</option></select>
+        </div>
+        <div class="field">
+          <label>PEOS Certificate ID</label>
+          <input type="text" name="PEOS Certificate ID" placeholder="e.g. PEOS-2026-XXXXXX">
+          <div class="help">From the Pre-Employment Orientation Seminar at <a href="https://peos.dmw.gov.ph" target="_blank" rel="noopener">peos.dmw.gov.ph</a>. Leave blank if you have none yet.</div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal Information</legend>
+      <div class="row">
+        <div class="field"><label>First Name <span class="req">*</span></label><input type="text" name="First Name" required></div>
+        <div class="field"><label>Middle Name</label><input type="text" name="Middle Name"></div>
+        <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" name="Last Name" required></div>
+        <div class="field"><label>Suffix</label><input type="text" name="Suffix" placeholder="Jr., III…"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Date of Birth <span class="req">*</span></label><input type="date" name="Date of Birth" required></div>
+        <div class="field"><label>Place of Birth <span class="req">*</span></label><input type="text" name="Place of Birth" required></div>
+        <div class="field"><label>Gender <span class="req">*</span></label>
+          <select name="Gender" required><option value="">Select…</option><option>Male</option><option>Female</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Religion <span class="req">*</span></label>
+          <select name="Religion" required><option value="">Select…</option>
+            <option>Roman Catholic</option><option>Christian</option><option>Iglesia ni Cristo</option><option>Muslim</option><option>Born Again</option><option>Protestant</option><option>Evangelical</option><option>Seventh-Day Adventist</option></select></div>
+        <div class="field"><label>Height (cm) <span class="req">*</span></label><input type="number" name="Height (cm)" id="heightCm" min="100" max="250" required><div class="conv">or <input type="number" id="heightFt" min="3" max="8" placeholder="5"> ft <input type="number" id="heightIn" min="0" max="11" placeholder="7"> in <span id="heightNote"></span></div></div>
+        <div class="field"><label>Weight (kg) <span class="req">*</span></label><input type="number" name="Weight (kg)" id="weightKg" min="30" max="250" required><div class="conv">or <input type="number" id="weightLb" min="60" max="550" placeholder="150"> lbs <span id="weightNote"></span></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Civil Status <span class="req">*</span></label>
+          <select name="Civil Status" id="civil" required><option value="">Select…</option>
+            <option>Single</option><option>Married</option><option>Widowed</option><option>Separated</option><option>Annulled</option><option>Divorced</option></select></div>
+        <div class="field"><label>Do you have kids? <span class="req">*</span></label>
+          <select name="Do you have kids?" id="kids" required><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+        <div class="field" data-show="kids=Yes"><label>Number of kids <span class="req">*</span></label><input type="number" name="Number of kids" min="1" max="20"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Passport Number <span class="req">*</span></label><input type="text" name="Passport Number" required placeholder="Write NONE if no passport yet"></div>
+        <div class="field"><label>Passport Expiry Date <span class="req">*</span></label><input type="date" name="Passport Expiry Date" required></div>
+        <div class="field"><label>Passport Copy</label><input type="file" id="passport" accept=".pdf,image/*"><div class="help">Photo or scan of the bio page. Max 4 MB. We read your name, passport number and dates from it. Skip if no passport yet.</div><div class="parse" id="passportStatus"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Years of Relevant Experience <span class="req">*</span></label><input type="number" name="Years of Relevant Experience" min="0" max="60" required></div>
+        <div class="field"><label>Do you have work experience? <span class="req">*</span></label>
+          <select name="Do you have work experience?" id="hasexp" required><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+        <div class="field" data-show="hasexp=Yes"><label>Are you currently employed? <span class="req">*</span></label>
+          <select name="Are you currently employed?" id="employed"><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Availability <span class="req">*</span></label>
+          <select name="Availability" required><option value="">Select…</option>
+            <option>As soon as possible</option><option>After 1 month</option><option>After 3 months</option><option>Need to confirm</option></select></div>
+        <div class="field"><label>Expected Monthly Salary <span class="req">*</span></label><input type="number" name="Expected Monthly Salary" min="0" required><div class="help">In the currency of the job (e.g. USD, SAR, QAR, JPY).</div></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contact Details</legend>
+      <div class="row">
+        <div class="field"><label>Mobile No. (Main) <span class="req">*</span></label><input type="tel" name="Mobile No. (Main)" class="mobile" required placeholder="0917 123 4567" inputmode="numeric" maxlength="13"><div class="help">Philippine mobile, 11 digits: 0917 123 4567</div></div>
+        <div class="field"><label>Mobile No. (Alternative)</label><input type="tel" name="Mobile No. (Alternative)" class="mobile" placeholder="0917 123 4567" inputmode="numeric" maxlength="13"></div>
+        <div class="field"><label>Landline No.</label><input type="tel" name="Landline No."></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>E-mail Address <span class="req">*</span></label><input type="email" name="E-mail Address" required></div>
+        <div class="field"><label>Facebook Messenger Account <span class="req">*</span></label><input type="text" name="Facebook Messenger Account" required placeholder="facebook.com/yourname"><div class="help">Your Facebook profile link or username.</div></div>
+      </div>
+      <div class="row">
+        <div class="field full"><label>Complete Present Address <span class="req">*</span></label><input type="text" name="Complete Present Address" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Current Location (Province) <span class="req">*</span></label>
+          <select name="Current Location" id="province" required><option value="">Select…</option></select></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Family Background</legend>
+      <div class="row">
+        <div class="field" data-show="civil=Married|Separated"><label>Spouse's Name <span class="req">*</span></label><input type="text" name="Spouse's Name"></div>
+        <div class="field"><label>Father's Name</label><input type="text" name="Father's Name"></div>
+        <div class="field"><label>Mother's Maiden Name (Pangalan ng nanay sa pagkadalaga)</label><input type="text" name="Mother's Maiden Name (Pangalan ng nanay sa pagkadalaga)"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Person to contact in case of emergency <span class="req">*</span></label><input type="text" name="Person to contact in case of emergency" required></div>
+        <div class="field"><label>Relationship <span class="req">*</span></label>
+          <select name="Relationship" required><option value="">Select…</option>
+            <option>Spouse/ Partner</option><option>Parent</option><option>Sibling (kapatid)</option><option>Child</option><option>Friend</option><option>Colleague</option><option>Other</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Mobile No. of contact person <span class="req">*</span></label><input type="tel" name="Mobile No. of contact person" class="mobile" required placeholder="0917 123 4567" inputmode="numeric" maxlength="13"></div>
+        <div class="field"><label>E-mail Address of the contact person <span class="req">*</span></label><input type="email" name="E-mail Address of the contact person" required></div>
+        <div class="field full"><label>Complete Home Address of the contact person <span class="req">*</span></label><input type="text" name="Complete Home Address of the contact person" required></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Educational Background</legend>
+      <div class="row">
+        <div class="field"><label>Highest Educational Attainment <span class="req">*</span></label>
+          <select name="Highest Educational Attainment" required><option value="">Select…</option>
+            <option>Elementary</option><option>Highschool Undergraduate</option><option>Highschool Graduate</option><option>Vocational/ Technical Course</option><option>College Undergraduate</option><option>Bachelor's Degree</option><option>Master's Degree</option><option>Doctorate Degree</option></select></div>
+        <div class="field"><label>Name of School or University <span class="req">*</span></label><input type="text" name="Name of School or University" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Year Graduated (or last school year attended) <span class="req">*</span></label><input type="number" name="Year Graduated or Last School Year Attended" min="1950" max="2035" required></div>
+        <div class="field"><label>Do you have a TESDA or Training Certificate? <span class="req">*</span></label>
+          <select name="Do you have a TESDA or Training Certificate?" id="tesdaq" required><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+        <div class="field" data-show="tesdaq=Yes"><label>TESDA / Training Certificate</label><input type="file" id="tesda" accept=".pdf,image/*"><div class="help">PDF preferred. Max 4 MB.</div></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Skills</legend>
+      <div class="row">
+        <div class="field"><label>Language you can speak or write <span class="req">*</span></label>
+          <select name="Languages you can speak or write" required><option value="">Select…</option>
+            <option>English</option><option>Arabic</option><option>Nihonggo</option><option>French</option><option>German</option><option>Mandarin Chinese</option><option>Other</option></select></div>
+        <div class="field"><label>Do you have a driver's license? <span class="req">*</span></label>
+          <select name="Do you have a driver's license?" required><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field full"><label>Skills <span class="req">*</span> <span class="help" style="display:inline">(tick all that apply)</span></label>
+          <div class="checks" id="skills">
+            <label><input type="checkbox" value="Carpentry"> Carpentry</label>
+            <label><input type="checkbox" value="Cleaning"> Cleaning</label>
+            <label><input type="checkbox" value="CNC Operator"> CNC Operator</label>
+            <label><input type="checkbox" value="Cooking"> Cooking</label>
+            <label><input type="checkbox" value="Driving"> Driving</label>
+            <label><input type="checkbox" value="Electrical Work"> Electrical Work</label>
+            <label><input type="checkbox" value="Hairdressing/Hairstylist"> Hairdressing/Hairstylist</label>
+            <label><input type="checkbox" value="Pipefitting"> Pipefitting</label>
+            <label><input type="checkbox" value="Plumbing"> Plumbing</label>
+            <label><input type="checkbox" value="Sewing"> Sewing</label>
+            <label><input type="checkbox" value="Welding"> Welding</label>
+            <label><input type="checkbox" value="Other" id="skillOther"> Other</label>
+          </div>
+        </div>
+        <div class="field full" data-show="skillOther=checked"><label>Specific Skill <span class="req">*</span></label><input type="text" name="Specific Skill"></div>
+      </div>
+    </fieldset>
+
+    <fieldset data-show="hasexp=Yes">
+      <legend>Most Recent / Current Job</legend>
+      <div class="row">
+        <div class="field"><label>Position Title <span class="req">*</span></label><input type="text" name="Position Title"></div>
+        <div class="field"><label>Company Name <span class="req">*</span></label><input type="text" name="Company Name"></div>
+        <div class="field"><label>Country <span class="req">*</span></label><select name="Country" id="country0"><option value="">Select…</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Duration (Start) <span class="req">*</span></label><input type="text" name="Duration (Start)" placeholder="e.g. Jan 2021"></div>
+        <div class="field" data-show="employed=No"><label>Duration (End) <span class="req">*</span></label><input type="text" name="Duration (End)" placeholder="e.g. Dec 2023"></div>
+      </div>
+      <div class="row">
+        <div class="field full"><label>Job Description <span class="req reqres">*</span></label><textarea name="Job Description" placeholder="Main duties and responsibilities (optional if you uploaded your resume)"></textarea><div class="help">Optional if you uploaded your resume.</div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Do you have a previous job before this one?</label>
+          <select name="Has Previous Job?" id="prev1"><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+      </div>
+    </fieldset>
+
+    <fieldset data-show="prev1=Yes">
+      <legend>Previous Job 1</legend>
+      <div class="row">
+        <div class="field"><label>Position Title <span class="req">*</span></label><input type="text" name="Position Title 1"></div>
+        <div class="field"><label>Company Name <span class="req">*</span></label><input type="text" name="Company Name 1"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Duration (Start) <span class="req">*</span></label><input type="text" name="Duration (Start) 1"></div>
+        <div class="field"><label>Duration (End) <span class="req">*</span></label><input type="text" name="Duration (End) 1"></div>
+      </div>
+      <div class="row">
+        <div class="field full"><label>Job Description <span class="req reqres">*</span></label><textarea name="Job Description 1" placeholder="Optional if you uploaded your resume"></textarea></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Another previous job? <span class="req">*</span></label>
+          <select name="Has Previous Job? 1" id="prev2"><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+      </div>
+    </fieldset>
+
+    <fieldset data-show="prev2=Yes">
+      <legend>Previous Job 2</legend>
+      <div class="row">
+        <div class="field"><label>Position Title</label><input type="text" name="Position Title 2"></div>
+        <div class="field"><label>Company Name</label><input type="text" name="Company Name 2"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Duration (Start)</label><input type="text" name="Duration (Start) 2"></div>
+        <div class="field"><label>Duration (End)</label><input type="text" name="Duration (End) 2"></div>
+      </div>
+      <div class="row">
+        <div class="field full"><label>Job Description</label><textarea name="Job Description 2"></textarea></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Character References</legend>
+      <div class="row">
+        <div class="field"><label>Reference 1 – Name <span class="req">*</span></label><input type="text" name="Ref 1 - Name" required></div>
+        <div class="field"><label>Relationship <span class="req">*</span></label>
+          <select name="Ref 1 - Relationship" required><option value="">Select…</option>
+            <option>Direct Supervisor / Manager</option><option>Colleague / Co-worker</option><option>HR Officer / Employer</option><option>Teacher / Professor</option><option>Client</option></select></div>
+        <div class="field"><label>Company / Position <span class="req">*</span></label><input type="text" name="Ref 1 - Company/ Position" required></div>
+        <div class="field"><label>Contact Number <span class="req">*</span></label><input type="tel" name="Ref 1 - Contact Number" class="mobile" required placeholder="0917 123 4567" inputmode="numeric" maxlength="13"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Reference 2 – Name <span class="req">*</span></label><input type="text" name="Ref 2 - Name" required></div>
+        <div class="field"><label>Relationship <span class="req">*</span></label>
+          <select name="Ref 2 - Relationship" required><option value="">Select…</option>
+            <option>Direct Supervisor / Manager</option><option>Colleague / Co-worker</option><option>HR Officer / Employer</option><option>Teacher / Professor</option><option>Client</option></select></div>
+        <div class="field"><label>Company / Position <span class="req">*</span></label><input type="text" name="Ref 2 - Company/ Position" required></div>
+        <div class="field"><label>Contact Number <span class="req">*</span></label><input type="tel" name="Ref 2 - Contact Number" class="mobile" required placeholder="0917 123 4567" inputmode="numeric" maxlength="13"></div>
+      </div>
+      <div class="consent">
+        <label><input type="checkbox" id="refConsent" required> <span>I hereby authorize the company to contact the references listed above for background verification purposes. <span class="req">*</span></span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Applicant Declaration and Consent</legend>
+      <div class="consent" style="border-top:0;padding-top:0">
+        <p><strong>1. Certification of Truth:</strong> I certify that the information provided in this application is true, correct, and complete to the best of my knowledge. I understand that any false statement, misrepresentation, or concealment of material facts may result in the rejection of my application, or if employed, immediate termination of my contract.</p>
+        <p><strong>2. Data Privacy Consent:</strong> By submitting this form, I voluntarily authorize Link Asia Manpower Solutions Corp. to collect, process, and share my personal data with principals, employers, and government agencies (including DMW, POEA, BI, and TESDA) for the purpose of recruitment, documentation, and deployment, in accordance with the Data Privacy Act of 2012 (RA 10173).</p>
+        <p><strong>3. Validity:</strong> I understand that my application remains valid for six (6) months. After this period, my data may be archived or disposed of securely unless I update my application.</p>
+        <label><input type="checkbox" id="declConsent" required> <span>I have read and agree to the above. <span class="req">*</span></span></label>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button type="submit" id="submitBtn">Submit Application</button>
+      <div id="msg"></div>
+    </div>
+  </form>
+
+  <div id="done" class="done hidden">
+    <h2>Application received — thank you!</h2>
+    <p>Your applicant code is <strong id="appCode"></strong>. Please keep it for reference.</p>
+    <p>Our recruitment team will review your qualifications and contact you through the e-mail, mobile number or Messenger account you provided.</p>
+  </div>
+
+  <footer>Link Asia Manpower Solutions Corp. &middot; Alabang, Muntinlupa City, Philippines</footer>
+</div>
+
+<script>
+// ======================= CONFIG =======================
+const API_URL  = 'https://script.google.com/macros/s/AKfycbz5T23okIOcJ8zJq09NTzCoJmiyEKIdHzW8GDIdM7TvkZmToi7JUamXvoh8jK861JFe/exec';
+const FORM_KEY = 'lams-apply-2026';
+const MAX_FILE_MB = 4;
+
+const PROVINCES = ["Abra","Abroad","Agusan del Norte","Agusan del Sur","Aklan","Albay","Antique","Apayao","Aurora","Basilan","Bataan","Batanes","Batangas","Benguet","Biliran","Bohol","Bukidnon","Bulacan","Cagayan","Camarines Norte","Camarines Sur","Camiguin","Capiz","Catanduanes","Cavite","Cebu","Cotabato","Davao de Oro","Davao del Norte","Davao del Sur","Davao Occidental","Davao Oriental","Dinagat Islands","Eastern Samar","Guimaras","Ifugao","Ilocos Norte","Ilocos Sur","Iloilo","Isabela","Kalinga","La Union","Laguna","Lanao del Norte","Lanao del Sur","Leyte","Maguindanao del Norte","Maguindanao del Sur","Marinduque","Masbate","Metropolitan Manila","Misamis Occidental","Misamis Oriental","Mountain Province","Negros Occidental","Negros Oriental","Northern Samar","Nueva Ecija","Nueva Vizcaya","Occidental Mindoro","Oriental Mindoro","Palawan","Pampanga","Pangasinan","Quezon","Quirino","Rizal","Romblon","Samar","Sarangani","Siquijor","Sorsogon","South Cotabato","Southern Leyte","Sultan Kudarat","Sulu","Surigao del Norte","Surigao del Sur","Tarlac","Tawi-Tawi","Zambales","Zamboanga del Norte","Zamboanga del Sur","Zamboanga Sibugay"];
+
+const COUNTRIES = ["Philippines","Saudi Arabia","Qatar","United Arab Emirates","Kuwait","Bahrain","Oman","Japan","South Korea","Taiwan","Singapore","Malaysia","Hong Kong","Lithuania","Hungary","Poland","Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo (Congo-Brazzaville)","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Jordan","Kazakhstan","Kenya","Kiribati","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Luxembourg","Madagascar","Malawi","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar (Burma)","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Pakistan","Palau","Palestine State","Panama","Papua New Guinea","Paraguay","Peru","Portugal","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Senegal","Serbia","Seychelles","Sierra Leone","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe","Other"];
+
+// ================= dropdowns =================
+function fill(sel, list) { list.forEach(v => { const o = document.createElement('option'); o.textContent = v; o.value = v; sel.appendChild(o); }); }
+fill(document.getElementById('province'), PROVINCES);
+fill(document.getElementById('country0'), COUNTRIES);
+
+// Positions: loaded live from Airtable through the backend (JSONP so it works from any website)
+window.__jobs = function (res) {
+  const sel = document.getElementById('position');
+  sel.innerHTML = '<option value="">Select a position…</option>';
+  if (!res || !res.ok) { sel.innerHTML = '<option value="">Could not load positions — please refresh</option>'; return; }
+  window.__jobMap = {};
+  const groups = [['Job Order', 'Job Orders'], ['Manpower Pooling', 'Manpower Pooling']];
+  groups.forEach(([type, label]) => {
+    let list = res.jobs.filter(j => (j.postingType || 'Job Order') === type);
+    if (!list.length) return;
+    // "Any suitable position" always goes to the bottom of its group
+    const isAny = j => /^ANY SUITABLE POSITION/i.test(j.title || '');
+    list = list.filter(j => !isAny(j)).concat(list.filter(isAny));
+    const g = document.createElement('optgroup'); g.label = label;
+    const seen = {};
+    list.forEach(j => {
+      const key = j.title.trim().toUpperCase();
+      if (seen[key]) return;                    // same position listed more than once -> show it once
+      seen[key] = true;
+      window.__jobMap[j.id] = j;
+      const o = document.createElement('option');
+      o.value = j.id;
+      o.textContent = j.title;                  // position only — no country
+      g.appendChild(o);
+    });
+    sel.appendChild(g);
+  });
+};
+document.getElementById('position').addEventListener('change', (e) => {
+  const j = (window.__jobMap || {})[e.target.value];
+  document.getElementById('pooling').classList.toggle('show', !!(j && j.postingType === 'Manpower Pooling'));
+  const q = j && j.qualifications ? j.qualifications : '';
+  document.getElementById('jobquals').textContent = q;
+  document.getElementById('jobinfo').classList.toggle('show', !!q);
+});
+(function () { const s = document.createElement('script'); s.src = API_URL + '?action=jobs&callback=__jobs&_=' + Date.now(); document.head.appendChild(s); })();
+
+// ================= conditional sections =================
+// data-show="id=Value|Value2"  or  data-show="id=checked"
+function visible(rule) {
+  const [id, vals] = rule.split('=');
+  const el = document.getElementById(id);
+  if (!el) return true;
+  if (vals === 'checked') return el.checked;
+  return vals.split('|').includes(el.value);
+}
+function applyRules() {
+  document.querySelectorAll('[data-show]').forEach(box => {
+    let show = visible(box.getAttribute('data-show'));
+    // a field inside a hidden fieldset is hidden too
+    const parentRule = box.parentElement && box.parentElement.closest('[data-show]');
+    if (parentRule && !visible(parentRule.getAttribute('data-show'))) show = false;
+    box.classList.toggle('hidden', !show);
+  });
+}
+document.getElementById('appForm').addEventListener('change', applyRules);
+applyRules();
+
+// ================= helpers =================
+const form = document.getElementById('appForm');
+const msg = document.getElementById('msg');
+function showMsg(text, cls) { msg.textContent = text; msg.className = cls; }
+function isShown(el) { return !el.closest('.hidden'); }
+function hasResume() { const r = document.getElementById('resume'); return !!(r.files && r.files.length); }
+document.getElementById('resume').addEventListener('change', () => {
+  document.querySelectorAll('.reqres').forEach(st => st.style.visibility = hasResume() ? 'hidden' : 'visible');
+});
+
+function readFile(input) {
+  return new Promise((resolve, reject) => {
+    const f = input.files && input.files[0];
+    if (!f || !isShown(input)) return resolve(null);
+    if (f.size > MAX_FILE_MB * 1024 * 1024) return reject(new Error(`"${f.name}" is larger than ${MAX_FILE_MB} MB. Please upload a smaller file.`));
+    const r = new FileReader();
+    r.onload = () => resolve({ name: f.name, type: f.type || 'application/octet-stream', data: String(r.result).split(',')[1] });
+    r.onerror = () => reject(new Error('Could not read ' + f.name));
+    r.readAsDataURL(f);
+  });
+}
+
+function validate() {
+  let ok = true, first = null;
+  form.querySelectorAll('.invalid').forEach(e => e.classList.remove('invalid'));
+  // required = marked with * in a visible field
+  form.querySelectorAll('.field, .consent').forEach(box => {
+    if (!isShown(box)) return;
+    const star = box.querySelector('.req');
+    if (!star) return;
+    if (star.classList.contains('reqres') && hasResume()) return;   // duties optional when a resume is attached
+    const ctl = box.querySelector('input,select,textarea');
+    if (!ctl) return;
+    let bad = false;
+    if (ctl.type === 'checkbox') {
+      if (box.classList.contains('field') && box.querySelector('.checks')) bad = !box.querySelector('.checks input:checked');
+      else bad = !ctl.checked;
+    } else if (ctl.type === 'file') bad = !(ctl.files && ctl.files.length);
+    else bad = !String(ctl.value).trim();
+    if (!bad && ctl.type === 'email') bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ctl.value);
+    if (!bad && ctl.classList.contains('mobile')) bad = !isMobileOk(ctl.value);
+    if (bad) { ok = false; ctl.classList.add('invalid'); if (!first) first = ctl; }
+  });
+  if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  return ok;
+}
+
+// ================= mobile number format (0917 123 4567 only) =================
+function fmtMobile(v) {
+  let d = String(v || '').replace(/\D/g, '');
+  if (d.startsWith('63') && d.length >= 12) d = '0' + d.slice(2);      // +63 917... -> 0917...
+  if (d.length === 10 && d.startsWith('9')) d = '0' + d;              // 917... -> 0917...
+  d = d.slice(0, 11);
+  return d.replace(/^(\d{4})(\d{0,3})(\d{0,4}).*$/, (m, a, b, c) => [a, b, c].filter(Boolean).join(' '));
+}
+function isMobileOk(v) { return /^09\d{2} \d{3} \d{4}$/.test(v); }
+document.querySelectorAll('input.mobile').forEach(inp => {
+  inp.addEventListener('input', () => { inp.value = fmtMobile(inp.value); });
+  inp.addEventListener('blur', () => { inp.value = fmtMobile(inp.value); inp.classList.toggle('invalid', !!inp.value && !isMobileOk(inp.value)); });
+});
+
+// ================= height / weight converters =================
+(function () {
+  const cm = document.getElementById('heightCm'), ft = document.getElementById('heightFt'), inch = document.getElementById('heightIn'), hn = document.getElementById('heightNote');
+  const kg = document.getElementById('weightKg'), lb = document.getElementById('weightLb'), wn = document.getElementById('weightNote');
+  function fromCm() { const v = parseFloat(cm.value); if (!v) { hn.textContent = ''; return; } const t = v / 2.54; const f = Math.floor(t / 12), i = Math.round(t - f * 12); ft.value = f; inch.value = i; hn.textContent = '= ' + f + ' ft ' + i + ' in'; }
+  function fromFt() { const f = parseFloat(ft.value) || 0, i = parseFloat(inch.value) || 0; if (!f && !i) return; cm.value = Math.round((f * 12 + i) * 2.54); hn.textContent = '= ' + cm.value + ' cm'; }
+  function fromKg() { const v = parseFloat(kg.value); if (!v) { wn.textContent = ''; return; } lb.value = Math.round(v * 2.20462); wn.textContent = '= ' + lb.value + ' lbs'; }
+  function fromLb() { const v = parseFloat(lb.value); if (!v) return; kg.value = Math.round(v / 2.20462); wn.textContent = '= ' + kg.value + ' kg'; }
+  cm.addEventListener('input', fromCm); ft.addEventListener('input', fromFt); inch.addEventListener('input', fromFt);
+  kg.addEventListener('input', fromKg); lb.addEventListener('input', fromLb);
+  window.__syncUnits = () => { fromCm(); fromKg(); };
+})();
+
+// ================= passport autofill =================
+// The passport is the source of truth for name, birth and passport details: these fields are filled/overwritten from it.
+async function parsePassport() {
+  const input = document.getElementById('passport');
+  const st = document.getElementById('passportStatus');
+  const f = input.files && input.files[0];
+  if (!f) { st.className = 'parse'; return; }
+  st.className = 'parse busy'; st.textContent = 'Reading your passport… about 10 seconds.';
+  try {
+    const file = await readFile(input);
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'parsePassport', key: FORM_KEY, file })
+    });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || 'could not read the passport');
+    let n = 0;
+    Object.keys(out.fields || {}).forEach(key => {
+      const ctl = form.querySelector('[name="' + key + '"]');
+      if (!ctl) return;
+      ctl.value = '';                                   // passport overrides what was typed
+      if (setControl(ctl, out.fields[key])) n++;
+    });
+    applyRules();
+    st.className = n ? 'parse ok' : 'parse err';
+    st.textContent = n
+      ? 'We filled in ' + n + ' field' + (n === 1 ? '' : 's') + ' from your passport (name, passport number, dates). Please check that they match your passport exactly.'
+      : 'We could not read the details on this copy. Please upload a clearer photo of the bio page, or type the details manually.';
+  } catch (err) {
+    st.className = 'parse err';
+    st.textContent = 'We could not read your passport automatically (' + err.message + '). Please type the details manually — the copy will still be sent with your application.';
+  }
+}
+document.getElementById('passport').addEventListener('change', parsePassport);
+
+// ================= resume autofill =================
+// As soon as a resume is chosen, the backend reads it (OCR + AI) and we pre-fill empty fields.
+const PARSE_MAP = {   // parsed key -> form control (by name or id)
+  'First Name':'First Name','Middle Name':'Middle Name','Last Name':'Last Name','Suffix':'Suffix',
+  'Date of Birth':'Date of Birth','Place of Birth':'Place of Birth','Gender':'Gender','Religion':'Religion',
+  'Height (cm)':'Height (cm)','Weight (kg)':'Weight (kg)','Civil Status':'Civil Status',
+  'Passport Number':'Passport Number','Passport Expiry Date':'Passport Expiry Date',
+  'Years of Relevant Experience':'Years of Relevant Experience','Mobile No. (Main)':'Mobile No. (Main)',
+  'Mobile No. (Alternative)':'Mobile No. (Alternative)','Landline No.':'Landline No.','E-mail Address':'E-mail Address',
+  'Facebook Messenger Account':'Facebook Messenger Account','Complete Present Address':'Complete Present Address',
+  'Current Location':'Current Location','Highest Educational Attainment':'Highest Educational Attainment',
+  'Name of School or University':'Name of School or University',
+  'Year Graduated or Last School Year Attended':'Year Graduated or Last School Year Attended',
+  'Do you have a TESDA or Training Certificate?':'Do you have a TESDA or Training Certificate?',
+  'Languages you can speak or write':'Languages you can speak or write',
+  "Do you have a driver's license?":"Do you have a driver's license?",
+  'Specific Skill':'Specific Skill','Do you have work experience?':'Do you have work experience?',
+  'Are you currently employed?':'Are you currently employed?','Position Title':'Position Title','Company Name':'Company Name',
+  'Country':'Country','Duration (Start)':'Duration (Start)','Duration (End)':'Duration (End)','Job Description':'Job Description',
+  'Has Previous Job?':'Has Previous Job?','Position Title 1':'Position Title 1','Company Name 1':'Company Name 1',
+  'Duration (Start) 1':'Duration (Start) 1','Duration (End) 1':'Duration (End) 1','Job Description 1':'Job Description 1',
+  'Has Previous Job? 1':'Has Previous Job? 1','Position Title 2':'Position Title 2','Company Name 2':'Company Name 2',
+  'Duration (Start) 2':'Duration (Start) 2','Duration (End) 2':'Duration (End) 2','Job Description 2':'Job Description 2',
+  'Ref 1 - Name':'Ref 1 - Name','Ref 1 - Company/ Position':'Ref 1 - Company/ Position','Ref 1 - Contact Number':'Ref 1 - Contact Number',
+  'Ref 2 - Name':'Ref 2 - Name','Ref 2 - Company/ Position':'Ref 2 - Company/ Position','Ref 2 - Contact Number':'Ref 2 - Contact Number'
+};
+function setControl(ctl, value) {
+  const v = String(value).trim();
+  if (!v) return false;
+  if (ctl.tagName === 'SELECT') {
+    const opt = Array.from(ctl.options).find(o => o.value.toLowerCase() === v.toLowerCase() || o.textContent.trim().toLowerCase() === v.toLowerCase())
+             || Array.from(ctl.options).find(o => o.value && (v.toLowerCase().includes(o.value.toLowerCase()) || o.value.toLowerCase().includes(v.toLowerCase())));
+    if (!opt) return false;
+    ctl.value = opt.value;
+  } else if (ctl.type === 'number') {
+    const n = parseFloat(String(v).replace(/[^0-9.]/g, ''));
+    if (isNaN(n)) return false;
+    ctl.value = n;
+  } else if (ctl.type === 'date') {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+    ctl.value = v;
+  } else {
+    ctl.value = v;
+  }
+  ctl.classList.add('filled');
+  return true;
+}
+function fillFromResume(parsed) {
+  let n = 0;
+  Object.keys(PARSE_MAP).forEach(key => {
+    if (parsed[key] === undefined || parsed[key] === null || parsed[key] === '') return;
+    const ctl = form.querySelector('[name="' + PARSE_MAP[key].replace(/"/g, '\\"') + '"]');
+    if (!ctl) return;
+    if (ctl.type !== 'checkbox' && String(ctl.value).trim()) return;      // never overwrite what the applicant typed
+    if (setControl(ctl, parsed[key])) n++;
+  });
+  if (Array.isArray(parsed['Skills'])) {
+    parsed['Skills'].forEach(sk => {
+      const box = Array.from(document.querySelectorAll('#skills input')).find(c => c.value.toLowerCase() === String(sk).toLowerCase());
+      if (box && !box.checked) { box.checked = true; n++; }
+    });
+  }
+  document.querySelectorAll('input.mobile').forEach(i => { if (i.value) i.value = fmtMobile(i.value); });
+  window.__syncUnits();
+  applyRules();
+  return n;
+}
+async function parseResume() {
+  const input = document.getElementById('resume');
+  const st = document.getElementById('parseStatus');
+  const f = input.files && input.files[0];
+  if (!f) { st.className = 'parse'; return; }
+  st.className = 'parse busy'; st.textContent = 'Reading your resume… this takes about 20 seconds. You can keep filling in the form.';
+  try {
+    const file = await readFile(input);
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'parseResume', key: FORM_KEY, file })
+    });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || 'could not read the file');
+    const n = fillFromResume(out.fields || {});
+    st.className = 'parse ok';
+    st.textContent = n
+      ? 'We filled in ' + n + ' field' + (n === 1 ? '' : 's') + ' from your resume (highlighted in yellow). Please check them and complete the rest.'
+      : 'We read your resume but could not match its details to the form — please fill in the form manually.';
+  } catch (err) {
+    st.className = 'parse err';
+    st.textContent = 'We could not read your resume automatically (' + err.message + '). Please fill in the form manually — your resume will still be sent with your application.';
+  }
+}
+document.getElementById('resume').addEventListener('change', parseResume);
+
+// ================= submit =================
+form.addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const altM = form.querySelector('[name="Mobile No. (Alternative)"]');
+  if (altM.value && !isMobileOk(altM.value)) { altM.classList.add('invalid'); showMsg('Mobile numbers must be in the format 0917 123 4567.', 'err'); altM.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+  if (!validate()) { showMsg('Please complete the required fields highlighted in red. Mobile numbers must be in the format 0917 123 4567.', 'err'); return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Submitting…'; showMsg('', '');
+
+  try {
+    // collect visible named fields
+    const fields = {};
+    form.querySelectorAll('[name]').forEach(el => {
+      if (el.name === 'website' || !isShown(el)) return;
+      const v = String(el.value).trim();
+      if (!v) return;
+      fields[el.name] = (el.type === 'number') ? Number(v) : v;
+    });
+    // linked record: Position Applied For
+    fields['Position Applied For'] = [document.getElementById('position').value];
+    // multi-select skills
+    fields['Skills'] = Array.from(document.querySelectorAll('#skills input:checked')).map(c => c.value);
+    // messenger -> url field
+    let fb = fields['Facebook Messenger Account'] || '';
+    if (fb && !/^https?:\/\//i.test(fb)) fb = 'https://' + (fb.includes('.') ? fb : 'facebook.com/' + fb.replace(/^@/, ''));
+    fields['Facebook Messenger Account'] = fb;
+    fields['Reference Check Consent'] = true;
+    fields['Applicant Declaration & Consent'] = true;
+    fields['Pipeline Stage'] = 'New Applicant';
+
+    const files = {
+      photo:  await readFile(document.getElementById('photo')),
+      resume: await readFile(document.getElementById('resume')),
+      tesda:  await readFile(document.getElementById('tesda')),
+      passport: await readFile(document.getElementById('passport'))
+    };
+
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },   // text/plain avoids a CORS preflight
+      body: JSON.stringify({ action: 'apply', key: FORM_KEY, website: form.website.value, fields, files })
+    });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || 'Submission failed');
+
+    form.classList.add('hidden');
+    document.getElementById('appCode').textContent = out.applicantId || out.recordId;
+    document.getElementById('done').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    showMsg('Sorry, your application could not be submitted: ' + err.message + ' — please try again, or e-mail us your resume.', 'err');
+    btn.disabled = false; btn.textContent = 'Submit Application';
+  }
+});
+</script>
+</body>
+</html>
