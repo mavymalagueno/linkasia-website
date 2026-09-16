@@ -68,7 +68,8 @@
   </header>
 
   <div class="intro">
-    Please complete all sections of this form accurately and honestly. The information you provide will be used to evaluate your qualifications for employment. Make sure your contact details are current so we can reach you about your application. Fields marked <span style="color:#b91c1c">*</span> are required. This takes about 10–15 minutes. Have your <strong>2x2 photo</strong> and <strong>updated resume</strong> ready before you start.
+    <p style="margin:0 0 10px;font-weight:700">Please complete all sections of this form accurately and honestly. The information you provide will be used to evaluate your qualifications for employment. Make sure your contact details are current so we can reach you about your application. Fields marked <span style="color:#b91c1c">*</span> are required. This takes about 10–15 minutes. Have your 2x2 photo, passport copy and updated resume ready before you start.</p>
+    <p style="margin:0;color:var(--muted)">Pakisagutan nang kumpleto at tapat ang lahat ng bahagi ng form na ito. Gagamitin ang inyong mga sagot para suriin kung kayo ay kwalipikado sa trabahong inaaplayan ninyo. Siguraduhing tama at gumagana ang inyong contact details para matawagan namin kayo tungkol sa inyong aplikasyon. Ang mga may markang <span style="color:#b91c1c">*</span> ay kailangang sagutan. Aabutin ito ng 10–15 minuto. Ihanda ang inyong 2x2 na litrato, kopya ng pasaporte at updated na resume bago magsimula.</p>
   </div>
 
   <form id="appForm" novalidate>
@@ -153,9 +154,9 @@
         <div class="field" data-show="kids=Yes"><label>Number of kids <span class="req">*</span></label><input type="number" name="Number of kids" min="1" max="20"></div>
       </div>
       <div class="row">
-        <div class="field"><label>Passport Number <span class="req">*</span></label><input type="text" name="Passport Number" required placeholder="Write NONE if no passport yet"></div>
+        <div class="field"><label>Passport Number <span class="req">*</span></label><input type="text" name="Passport Number" required placeholder="e.g. P1234567A"></div>
         <div class="field"><label>Passport Expiry Date <span class="req">*</span></label><input type="date" name="Passport Expiry Date" required></div>
-        <div class="field"><label>Passport Copy</label><input type="file" id="passport" accept=".pdf,image/*"><div class="help">Photo or scan of the bio page. Max 4 MB. We read your name, passport number and dates from it. Skip if no passport yet.</div><div class="parse" id="passportStatus"></div></div>
+        <div class="field"><label>Passport Copy <span class="req">*</span></label><input type="file" id="passport" accept=".pdf,image/*" required><div class="help">Photo or scan of the bio page (required). Max 4 MB. We read your name, passport number and dates from it.</div><div class="parse" id="passportStatus"></div></div>
       </div>
       <div class="row">
         <div class="field"><label>Years of Relevant Experience <span class="req">*</span></label><input type="number" name="Years of Relevant Experience" min="0" max="60" required></div>
@@ -177,8 +178,8 @@
         <div class="field" data-show="exofw=Yes"><label>Date of last overseas work <span class="req">*</span></label><input type="date" name="Date of Last Overseas Work"><div class="help">When your last overseas contract ended.</div></div>
       </div>
       <div class="row">
-        <div class="field"><label>Any unsettled debts overseas? <span class="req">*</span></label>
-          <select name="Unsettled Debts Overseas?" required><option value="">Select…</option><option>No</option><option>Yes</option></select></div>
+        <div class="field" data-show="exofw=Yes"><label>Any unsettled debts overseas? <span class="req">*</span></label>
+          <select name="Unsettled Debts Overseas?"><option value="">Select…</option><option>No</option><option>Yes</option></select></div>
         <div class="field"><label>Any case against a former employer, DOLE or DMW (POEA)? <span class="req">*</span></label>
           <select name="Case vs Former Employer / DOLE / DMW?" id="hascase" required><option value="">Select…</option><option>No</option><option>Yes</option></select></div>
         <div class="field" data-show="hascase=Yes"><label>Status of the case <span class="req">*</span></label><input type="text" name="Case Status" placeholder="e.g. pending / settled / dismissed"></div>
@@ -327,6 +328,9 @@
       </div>
       <div class="row">
         <div class="field full"><label>Job Description</label><textarea name="Job Description 2"></textarea></div>
+      </div>
+      <div class="row">
+        <div class="field full"><label>Other work experience</label><textarea name="Other Work Experience" placeholder="If you have more than 3 jobs, list the others here — position, employer, country, years (e.g. Welder – ABC Contracting, Qatar, 2015–2018)"></textarea><div class="help">All jobs on your uploaded resume are also read in full, so you can leave this blank if they are on your resume.</div></div>
       </div>
     </fieldset>
 
